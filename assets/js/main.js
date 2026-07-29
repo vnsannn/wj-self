@@ -23,11 +23,14 @@
 
   if (enableCustomCursor && cursorDot && canvas) {
     const ctx = canvas.getContext('2d');
-    const dpr = window.devicePixelRatio || 1;
+    let dpr = window.devicePixelRatio || 1;
 
     function resizeCanvas() {
-      canvas.width = window.innerWidth * dpr;
-      canvas.height = window.innerHeight * dpr;
+      // Re-read DPR every resize — browser zoom changes it, and the
+      // window's `resize` event fires on zoom, so we stay in sync.
+      dpr = window.devicePixelRatio || 1;
+      canvas.width = Math.floor(window.innerWidth * dpr);
+      canvas.height = Math.floor(window.innerHeight * dpr);
       canvas.style.width = window.innerWidth + 'px';
       canvas.style.height = window.innerHeight + 'px';
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
@@ -62,7 +65,19 @@
     });
 
     function drawTrail() {
+      // Clear in native/physical coordinates (transform reset), not in
+      // the DPR-scaled logical space. Under the DPR transform, calling
+      // clearRect(0, 0, canvas.width, canvas.height) only clears a
+      // logical rect of physical size (canvas.width*dpr, canvas.height*dpr).
+      // When DPR < 1 (e.g. browser zoom below 100% on some Windows
+      // setups), that under-clears the right/bottom edges — leaving a
+      // painted-canvas effect exactly proportional to (1 - dpr). The
+      // 20% right/bottom smear was DPR ≈ 0.8. Save/reset/restore keeps
+      // the rest of the draw code in CSS-pixel space.
+      ctx.save();
+      ctx.setTransform(1, 0, 0, 1, 0, 0);
       ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.restore();
 
       cursorDot.style.left = mouseX + 'px';
       cursorDot.style.top = mouseY + 'px';
