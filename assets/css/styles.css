@@ -879,28 +879,31 @@ footer span { color: var(--accent-gold); }
 
 /* ===== RESPONSIVE ===== */
 @media (max-width: 900px) {
-  /* Mobile: no morphing dock. Nav is a plain top bar with brand + hamburger. */
-  .nav,
-  .nav.hero-dock,
-  .nav.content-header {
-    top: 0;
-    left: 0;
-    right: 0;
-    width: auto !important;
-    min-width: 0;
-    padding: 14px 18px !important;
-    border-radius: 0 !important;
-    background: rgba(20, 19, 18, 0.85);
-    border: 0;
-    border-bottom: 1px solid rgba(240, 236, 226, 0.14);
-    box-shadow: none;
-    transform: none !important;
-    justify-content: space-between;
-    color: #f0ece2;
-  }
-  .nav .nav-brand { display: block; color: #f0ece2; font-size: 0.9rem; }
+  /* Mobile: keep the desktop dock LOOK — a floating pill over the hero
+     that morphs into a full-width content-header on scroll — but swap
+     the nav-links list for a hamburger, since the horizontal link row
+     doesn't fit at narrow widths. */
+
+  /* Nav-links list is off on mobile at every stage; hamburger takes over. */
   .nav-links, .nav-indicator { display: none !important; }
   .nav-hamburger { display: flex; }
+
+  /* Hero-dock pill — show brand + hamburger inside it. */
+  .nav.hero-dock {
+    width: max-content;
+    min-width: 0;
+    padding: 8px 16px;
+    gap: 14px;
+  }
+  .nav.hero-dock .nav-brand {
+    display: block;
+    color: #f0ece2;
+    font-size: 0.78rem;
+  }
+
+  /* Content-header — plain full-width top bar with brand + hamburger. */
+  .nav.content-header { padding: 14px 18px; }
+  .nav.content-header .nav-brand { font-size: 0.85rem; }
 
   .section-pad { padding: 72px 24px; }
 

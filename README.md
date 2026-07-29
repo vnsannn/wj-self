@@ -8,7 +8,7 @@ A live, interactive presentation on **William James's** theory of the Self — t
 
 ## 🌐 View the Site
 
-👉 **[Open the live presentation](https://vnsannn.github.io/wj-self/)**
+👉 **[Open the live presentation](https://vnsannn.github.io/william-james/)**
 
 Scroll through five sections: About, The Principles of Psychology, I-self, Me-self, and Summary.
 

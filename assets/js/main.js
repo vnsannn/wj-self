@@ -253,17 +253,31 @@
   }
 
   function updateHeaderState() {
-    // On mobile the nav is a plain top bar (see CSS). Skip all the
-    // desktop dock↔header morphing / inline sizing. We still track
-    // dark-section state so the hamburger stays legible.
-    if (window.matchMedia('(max-width: 900px)').matches) {
-      nav.classList.add('visible');
-      nav.classList.remove('hero-dock');
-      nav.classList.add('content-header');
-      const dark = syncNavToPosition() === 'meself' || window.scrollY < transitionPoint;
-      nav.classList.toggle('dark-header', dark);
-      // Clear any inline styles the desktop path may have left behind.
+    const isMobile = window.matchMedia('(max-width: 900px)').matches;
+
+    // Mobile path: keep the dock LOOK but skip the width-interpolating
+    // desktop morph. On mobile the dock/pill contains just brand +
+    // hamburger — its natural width is small, so we let CSS size it and
+    // only toggle the dock ↔ content-header classes based on scroll.
+    if (isMobile) {
+      const progress = Math.min(Math.max(window.scrollY / transitionPoint, 0), 1);
+      const isContentHeader = progress >= 1;
+      const currentSectionId = isContentHeader ? syncNavToPosition() : null;
+      const isDarkSection = currentSectionId === 'meself';
+
+      // Clear any inline styles that the desktop path may have left
+      // behind on a resize down to mobile.
       nav.style.cssText = '';
+
+      nav.classList.add('visible');
+      nav.classList.toggle('dark-header', Boolean(isDarkSection));
+      if (isContentHeader) {
+        nav.classList.remove('hero-dock');
+        nav.classList.add('content-header');
+      } else {
+        nav.classList.add('hero-dock');
+        nav.classList.remove('content-header');
+      }
       return;
     }
 
