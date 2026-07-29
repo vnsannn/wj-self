@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>William James | The Me-self &amp; I-self</title>
+
+  <meta name="description" content="An interactive presentation on William James's theory of the self: the I-self (knower) and the Me-self (known), from The Principles of Psychology (1890).">
+  <meta name="author" content="Vien Fritzgerald V. Calderon">
+  <meta name="theme-color" content="#1a1a18">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="William James | The Me-self & I-self">
+  <meta property="og:description" content="An interactive presentation on William James's theory of the self: the I-self (knower) and the Me-self (known).">
+  <meta property="og:image" content="assets/images/portrait.jpg">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="William James | The Me-self & I-self">
+  <meta name="twitter:description" content="An interactive presentation on William James's theory of the self.">
+  <meta name="twitter:image" content="assets/images/portrait.jpg">
+
+  <link rel="icon" href="assets/images/book-cover.jpg" type="image/jpeg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400;1,600&family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&family=DM+Serif+Display&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+
+  <a class="skip-link" href="#about">Skip to content</a>
+
+  <div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
+  <canvas class="cursor-canvas" id="cursorCanvas" aria-hidden="true"></canvas>
+
+  <nav class="nav hero-dock visible" id="mainNav" aria-label="Primary">
+    <div class="nav-brand">William James</div>
+    <div class="nav-wrap">
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#about">About</a></li>
+        <li><a href="#principles">Principles</a></li>
+        <li><a href="#iself">I-self</a></li>
+        <li><a href="#meself">Me-self</a></li>
+        <li><a href="#summary">Summary</a></li>
+      </ul>
+      <div class="nav-indicator" id="navIndicator" aria-hidden="true"></div>
+    </div>
+  </nav>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero" id="hero">
+    <div class="hero-image">
+      <img src="assets/images/portrait.jpg" alt="William James portrait" width="708" height="900" loading="eager" decoding="async">
+    </div>
+    <div class="hero-content">
+      <div class="hero-tag">Understanding the Self</div>
+      <h1 class="hero-title">William James</h1>
+      <div class="hero-title-sub">The Me-self &amp; I-self</div>
+      <div class="hero-divider"></div>
+      <div class="hero-presenter-label">Presented by</div>
+      <div class="hero-presenter">CALDERON, VIEN FRITZGERALD V.</div>
+    </div>
+    <div class="hero-bottom">
+      <span>Scroll to explore</span>
+      <div class="hero-scroll-line" aria-hidden="true"></div>
+    </div>
+  </section>
+
+  <!-- ===== ABOUT ===== -->
+  <section class="section-pad" id="about">
+    <div class="section-inner">
+      <div class="about-grid">
+        <div class="about-portrait reveal">
+          <img src="assets/images/portrait-vintage.jpg" alt="Vintage portrait of Prof. William James" width="407" height="612" loading="lazy" decoding="async">
+          <div class="about-portrait-caption">Prof. William James, c. 1890s</div>
+        </div>
+        <div>
+          <div class="section-number reveal">01</div>
+          <h2 class="section-heading reveal reveal-delay-1">Who is <em>William James</em>?</h2>
+          <ul class="kp-list">
+            <li class="reveal reveal-delay-1">
+              <div class="kp-bullet" aria-hidden="true"></div>
+              <span class="kp-text"><strong>Born January 11, 1842</strong> in New York City</span>
+            </li>
+            <li class="reveal reveal-delay-2">
+              <div class="kp-bullet" aria-hidden="true"></div>
+              <span class="kp-text"><strong>Father of American Psychology</strong></span>
+            </li>
+            <li class="reveal reveal-delay-3">
+              <div class="kp-bullet" aria-hidden="true"></div>
+              <span class="kp-text"><strong>Leader of Pragmatism</strong> (philosophy) and <strong>founder of Functionalism</strong> (psychology)</span>
+            </li>
+            <li class="reveal reveal-delay-2">
+              <div class="kp-bullet" aria-hidden="true"></div>
+              <span class="kp-text"><strong>Harvard Professor</strong> with a physician background before moving to psychology</span>
+            </li>
+            <li class="reveal reveal-delay-3">
+              <div class="kp-bullet" aria-hidden="true"></div>
+              <span class="kp-text"><strong>Died August 26, 1910</strong> in Chocorua, New Hampshire</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PRINCIPLES ===== -->
+  <section class="section-pad book-section" id="principles">
+    <div class="section-inner">
+      <div class="book-grid">
+        <div>
+          <div class="section-number reveal">02</div>
+          <h2 class="section-heading reveal reveal-delay-1">The <em>Principles</em> of Psychology</h2>
+          <ul class="kp-list">
+            <li class="reveal reveal-delay-1">
+              <div class="kp-bullet" aria-hidden="true"></div>
+              <span class="kp-text">Took <strong>12 years</strong> to write, aimed to make psychology a natural science</span>
+            </li>
+            <li class="reveal reveal-delay-2">
+              <div class="kp-bullet" aria-hidden="true"></div>
+              <span class="kp-text"><strong>Stream of Consciousness</strong>: personal, continuous, selective</span>
+            </li>
+            <li class="reveal reveal-delay-3">
+              <div class="kp-bullet" aria-hidden="true"></div>
+              <span class="kp-text"><strong>Self as both Knower and Known</strong>: observer and the thing being observed at once</span>
+            </li>
+            <li class="reveal reveal-delay-4">
+              <div class="kp-bullet" aria-hidden="true"></div>
+              <span class="kp-text"><strong>Functionalism applied to the self</strong>: what the self is <em>for</em>, not just what it is</span>
+            </li>
+          </ul>
+        </div>
+        <div class="book-cover-wrap reveal">
+          <img src="assets/images/book-cover.jpg" alt="Cover of The Principles of Psychology by William James" width="500" height="500" loading="lazy" decoding="async">
+          <div class="book-cover-label">First Edition, 1890</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== I-SELF ===== -->
+  <section class="section-pad iself-section" id="iself">
+    <div class="section-inner">
+      <div class="iself-header">
+        <div class="section-number reveal">03</div>
+        <h2 class="section-heading reveal reveal-delay-1">I-self <span class="heading-sub">(Self as Subject)</span></h2>
+      </div>
+      <ul class="kp-list reveal reveal-delay-2">
+        <li>
+          <div class="kp-bullet" aria-hidden="true"></div>
+          <span class="kp-text">Also called the &ldquo;pure ego&rdquo; or the observer, the one who knows</span>
+        </li>
+        <li>
+          <div class="kp-bullet" aria-hidden="true"></div>
+          <span class="kp-text">Gives continuity, distinctness, and volition</span>
+        </li>
+        <li>
+          <div class="kp-bullet" aria-hidden="true"></div>
+          <span class="kp-text">Can never be caught as an object of study, the moment you try to observe it, it becomes Me-self instead</span>
+        </li>
+      </ul>
+      <blockquote class="iself-quote reveal">
+        &ldquo;The self of all the selves is the stream of conscious experience, the thought as it passes.&rdquo;
+        <cite>William James</cite>
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- ===== ME-SELF ===== -->
+  <section class="section-pad meself-section" id="meself">
+    <div class="section-inner">
+      <div class="section-number reveal">04</div>
+      <h2 class="section-heading reveal reveal-delay-1">Me-self <span class="heading-sub">(Self as Object)</span></h2>
+
+      <div class="me-cards">
+        <div class="me-card reveal reveal-delay-1">
+          <svg class="me-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18l3 3 6.3-6.3a4 4 0 0 0 5.4-5.4l-2.6 2.6-2.4-2.4z"/>
+          </svg>
+          <div class="me-card-title">Material Me</div>
+          <div class="me-card-sub">Body &amp; Possessions</div>
+          <p class="me-card-text">Physical things a person considers part of themselves.</p>
+        </div>
+        <div class="me-card reveal reveal-delay-2">
+          <svg class="me-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+            <circle cx="9" cy="7" r="4"/>
+            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+          </svg>
+          <div class="me-card-title">Social Me</div>
+          <div class="me-card-sub">How Others See You</div>
+          <p class="me-card-text">How a person is perceived by others.</p>
+        </div>
+        <div class="me-card reveal reveal-delay-3">
+          <svg class="me-card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 2l2.4 6.9L21 10l-5.4 4.4L17.6 22 12 18l-5.6 4 2-7.6L3 10l6.6-1.1z"/>
+          </svg>
+          <div class="me-card-title">Spiritual Me</div>
+          <div class="me-card-sub">Values &amp; Dreams</div>
+          <p class="me-card-text">Inner values, conscience, moral standards, and dreams.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SUMMARY ===== -->
+  <section class="section-pad summary-section" id="summary">
+    <div class="section-inner">
+      <div class="summary-grid">
+        <div>
+          <div class="section-number reveal">05</div>
+          <h2 class="section-heading reveal reveal-delay-1">Summary: Two Sides of <em>the Same Self</em></h2>
+          <ul class="summary-points">
+            <li class="reveal reveal-delay-1">
+              <div class="kp-bullet" aria-hidden="true"></div>
+              <span class="kp-text">I-self and Me-self are <strong>two sides of the same self</strong>, not two separate selves</span>
+            </li>
+            <li class="reveal reveal-delay-2">
+              <div class="kp-bullet" aria-hidden="true"></div>
+              <span class="kp-text"><strong>I-self</strong> = the knower (subject); <strong>Me-self</strong> = the known (object)</span>
+            </li>
+            <li class="reveal reveal-delay-3">
+              <div class="kp-bullet" aria-hidden="true"></div>
+              <span class="kp-text">Both work together to form one's <strong>complete sense of identity</strong></span>
+            </li>
+          </ul>
+        </div>
+        <div class="summary-visual reveal reveal-delay-2">
+          <div class="dual-circle" role="img" aria-label="Diagram: the Me-self ring encloses the I-self core.">
+            <div class="dual-ring" title="Me-self" aria-hidden="true"></div>
+            <div class="dual-core" title="I-self" aria-hidden="true"></div>
+            <span class="dual-label dual-label-meself">Me-self</span>
+            <span class="dual-label dual-label-iself">I-self</span>
+          </div>
+          <div class="summary-caption">The self that observes &amp; the self that is observed</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    Copyright &copy; <span id="footerYear">2026</span> iennn.dev. All rights reserved.
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
