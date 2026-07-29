@@ -253,6 +253,20 @@
   }
 
   function updateHeaderState() {
+    // On mobile the nav is a plain top bar (see CSS). Skip all the
+    // desktop dock↔header morphing / inline sizing. We still track
+    // dark-section state so the hamburger stays legible.
+    if (window.matchMedia('(max-width: 900px)').matches) {
+      nav.classList.add('visible');
+      nav.classList.remove('hero-dock');
+      nav.classList.add('content-header');
+      const dark = syncNavToPosition() === 'meself' || window.scrollY < transitionPoint;
+      nav.classList.toggle('dark-header', dark);
+      // Clear any inline styles the desktop path may have left behind.
+      nav.style.cssText = '';
+      return;
+    }
+
     const progress = Math.min(Math.max(window.scrollY / transitionPoint, 0), 1);
     const isContentHeader = progress >= 1;
     const currentSectionId = isContentHeader ? syncNavToPosition() : null;
@@ -428,6 +442,58 @@
       const targetSection = document.getElementById(targetId);
       navigateToSection(targetSection, link);
     });
+  });
+
+  /* ----------------------------------------------------------
+     Mobile hamburger menu
+     ---------------------------------------------------------- */
+  const hamburger = document.getElementById('navHamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  const mobileMenuClose = document.getElementById('mobileMenuClose');
+  const mobileMenuLinks = mobileMenu ? mobileMenu.querySelectorAll('a') : [];
+
+  function openMenu() {
+    if (!mobileMenu) return;
+    mobileMenu.classList.add('open');
+    mobileMenu.setAttribute('aria-hidden', 'false');
+    hamburger?.setAttribute('aria-expanded', 'true');
+    document.body.classList.add('menu-open');
+  }
+  function closeMenu() {
+    if (!mobileMenu) return;
+    mobileMenu.classList.remove('open');
+    mobileMenu.setAttribute('aria-hidden', 'true');
+    hamburger?.setAttribute('aria-expanded', 'false');
+    document.body.classList.remove('menu-open');
+  }
+
+  hamburger?.addEventListener('click', () => {
+    if (mobileMenu?.classList.contains('open')) closeMenu();
+    else openMenu();
+  });
+  mobileMenuClose?.addEventListener('click', closeMenu);
+
+  mobileMenuLinks.forEach((link) => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const targetId = link.getAttribute('href').substring(1);
+      const targetSection = document.getElementById(targetId);
+      closeMenu();
+      // Small delay lets the overlay fade out before the scroll starts
+      // so the destination isn't hidden behind the fading backdrop.
+      setTimeout(() => {
+        if (targetSection) {
+          targetSection.scrollIntoView({
+            behavior: prefersReducedMotion ? 'auto' : 'smooth'
+          });
+        }
+      }, 200);
+    });
+  });
+
+  // Close menu on Escape
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && mobileMenu?.classList.contains('open')) closeMenu();
   });
 
   // Keep the indicator hidden while the hero is active.
